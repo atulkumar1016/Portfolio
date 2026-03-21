@@ -1,1 +1,1 @@
-💼 A personal portfolio website built to present my projects, skills, and professional journey. It features a clean design, structured layout, and downloadable resume, providing a complete overview of my work and capabilities. Hosted using GitHub Pages. 🚀
+💼 A personal portfolio showcasing my projects, skills, and professional journey. It features a clean design, structured layout, and a downloadable resume, providing a complete overview of my work. 🚀

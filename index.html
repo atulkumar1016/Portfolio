@@ -552,7 +552,8 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .status-badge{font-size:.72rem;}
   
   /* Bringing back animated character on mobile synchronously and positioning it behind/next to the card for symmetry without hiding it completely */
-  .orbit-walker-wrap{display:block !important; width:90px; height:190px; margin-left:80px; bottom:-15px; left:50%; z-index:0;}
+  .orbit-walker-wrap{display:block !important; width:90px; height:190px; margin-left:80px; bottom:-15px; left:50%; z-index:0; transform:translateX(0) translateY(0) !important; animation: mobileIdle 3.8s ease-in-out infinite !important; opacity: 1 !important;}
+  @keyframes mobileIdle{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
   /* Profile card sizing & perfectly centered */
   .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center; position:relative;}
@@ -583,6 +584,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .sk-cat-title::after{left:50%; transform:translateX(-50%); width:60px;}
   .sk-cat-title{text-align:center;}
   .sk-divider,.sk-cat-count{display:none;}
+  .tp-lvl{display:none !important;}
   .tech-grid{display:flex; flex-wrap:wrap; justify-content:center; gap:12px;}
   .tech-pill{width:140px; justify-content:center; text-align:center; flex-direction:column; gap:8px; padding:16px 12px; height:auto;}
   .tech-pill img, .tech-pill svg.tpsvg{width:36px; height:36px; margin:0 auto;}
@@ -622,7 +624,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 
   /* Contact */
   #contact-section{padding:70px 20px 90px;}
-  .contact-grid-2{display:flex; flex-direction:column; align-items:center; gap:16px;}
+  .contact-grid-2{display:grid; grid-template-columns:1fr; gap:16px; width:100%; max-width:100%;}
   .contact-grid-4{display:grid; grid-template-columns:1fr 1fr!important; gap:16px;}
   .cc{display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; padding:28px 20px !important; box-sizing:border-box; max-width:100%; overflow:hidden;}
   .cc-icon{margin:0 auto; width:56px; height:56px; flex-shrink:0;}

@@ -1,2 +1,1 @@
-# Portfolio
-🚀 Personal Portfolio  | Showcasing Projects, Skills &amp; Resume 💼✨
+💼 A personal portfolio website built to present my projects, skills, and professional journey. It features a clean design, structured layout, and downloadable resume, providing a complete overview of my work and capabilities. Hosted using GitHub Pages. 🚀

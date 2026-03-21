@@ -1,2 +1,2 @@
 # Portfolio
-🚀 Personal Portfolio Website | Showcasing Projects, Skills &amp; Resume 💼✨
+🚀 Personal Portfolio  | Showcasing Projects, Skills &amp; Resume 💼✨

@@ -232,7 +232,7 @@ header.scrolled .header-bar{
 .orbit-walker-wrap{
   position:absolute;bottom:-18px;right:-95px;width:130px;height:270px;
   pointer-events:none;z-index:10;opacity:0;transform:translateX(160px);
-  animation:charSlideIn 1.1s cubic-bezier(.22,1,.36,1) 0.5s forwards,charIdle 3.8s ease-in-out 1.8s infinite;
+  animation:charSlideIn 1.1s cubic-bezier(.22,1,.36,1) forwards,charIdle 3.8s ease-in-out .8s infinite;
 }
 @keyframes charSlideIn{to{opacity:1;transform:translateX(0);}}
 @keyframes charIdle{0%,100%{transform:translateX(0) translateY(0);}50%{transform:translateX(0) translateY(-8px);}}
@@ -355,7 +355,7 @@ header.scrolled .header-bar{
 .tp-info{display:flex;flex-direction:column;gap:2px;}
 .tp-name{font-weight:700;font-size:.85rem;color:var(--ink-mid);white-space:nowrap;line-height:1;}
 .tech-pill:hover .tp-name{color:var(--blue);}
-.tp-lvl{font-family:var(--font-mono);font-size:.62rem;font-weight:600;color:var(--ink-light);text-transform:uppercase;letter-spacing:.04em;}
+.tp-lvl{display:none !important;}
 
 /* ═══════════════════════════════════════════════════════════
    PROJECTS — FIX 4: "Portfolio" tag removed, "Selected Projects" → "Projects"
@@ -551,12 +551,12 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .hero-actions{justify-content:center;}
   .status-badge{font-size:.72rem;}
   
-  /* Hiding the animated character ensures pure symmetry for the profile card on small screens */
-  .orbit-walker-wrap{display:none !important;}
+  /* Bringing back animated character on mobile synchronously and positioning it behind/next to the card for symmetry without hiding it completely */
+  .orbit-walker-wrap{display:block !important; width:90px; height:190px; margin-left:80px; bottom:-15px; left:50%; z-index:0;}
 
   /* Profile card sizing & perfectly centered */
-  .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center;}
-  .profile-card-wrap{width:100%;max-width:380px; margin:0 auto;}
+  .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center; position:relative;}
+  .profile-card-wrap{width:100%;max-width:380px; margin:0 auto; z-index:2;}
   .profile-card{padding:32px 24px; display:flex; flex-direction:column; align-items:center; text-align:center;}
   .avatar-wrap{margin:0 auto 18px;}
   .avatar-wrap::before{inset:-5px;opacity:1;}
@@ -614,7 +614,8 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   /* Experience/Education */
   #experience .section{padding:70px 20px;}
   .edu-card{display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; padding:28px 20px;}
-  .edu-icon-wrap{width:64px;height:64px; margin:0 auto; display:flex !important;}
+  .edu-icon-wrap{width:64px; height:64px; margin:0 auto; display:flex !important; flex-shrink:0; justify-content:center; align-items:center; overflow:hidden;}
+  .edu-icon-wrap img{width:100%; height:100%; object-fit:contain; border-radius:12px;}
   .edu-info{display:flex; flex-direction:column; align-items:center;}
   .edu-period{justify-content:center;}
   .exp-body{padding:28px 24px; display:flex; flex-direction:column; align-items:center; text-align:center;}
@@ -623,9 +624,11 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   #contact-section{padding:70px 20px 90px;}
   .contact-grid-2{display:flex; flex-direction:column; align-items:center; gap:16px;}
   .contact-grid-4{display:grid; grid-template-columns:1fr 1fr!important; gap:16px;}
-  .cc{display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; padding:28px 20px !important;}
-  .cc-icon{margin:0 auto; width:56px; height:56px;}
-  .cc-text{align-items:center;}
+  .cc{display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; padding:28px 20px !important; box-sizing:border-box; max-width:100%; overflow:hidden;}
+  .cc-icon{margin:0 auto; width:56px; height:56px; flex-shrink:0;}
+  .cc-text{align-items:center; max-width:100%; overflow:hidden;}
+  .cc-val{white-space:normal !important; word-wrap:break-word;}
+  .cc-text span{white-space:normal; word-wrap:break-word;}
 
   .section-title,.section-title-light{font-size:clamp(2rem,6vw,2.6rem); text-align:center;}
   .section-header{margin-bottom:40px; text-align:center;}

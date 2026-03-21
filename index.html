@@ -110,7 +110,6 @@ header.scrolled .header-bar{
 }
 .header-actions{display:flex;gap:10px;align-items:center;}
 
-/* FIX 1: CV button — use relative path for GitHub Pages */
 .cv-btn-nav{border:1.5px solid #FCA5A5;color:#DC2626;padding:8px 18px;border-radius:100px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .25s;background:#FEF2F2;}
 .cv-btn-nav:hover{border-color:#EF4444;color:white;background:#EF4444;transform:translateY(-2px);box-shadow:0 6px 16px rgba(239,68,68,.25);}
 .call-btn{background:var(--ink);color:white;padding:10px 22px;border-radius:100px;font-weight:600;font-size:.87rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 15px rgba(0,0,0,.15);display:flex;align-items:center;gap:8px;}
@@ -339,7 +338,7 @@ header.scrolled .header-bar{
 .abtn-o:hover{border-color:var(--blue);color:#93C5FD;transform:translateY(-4px);}
 
 /* ═══════════════════════════════════════════════════════════
-   SKILLS — FIX 2: Unique name "Tech Stack" removed, using "The Forge" concept
+   SKILLS
    ═══════════════════════════════════════════════════════════ */
 #skills-wrap{background:var(--white);border-top:1px solid var(--border);}
 .skills-cats{display:flex;flex-direction:column;gap:52px;}
@@ -358,7 +357,7 @@ header.scrolled .header-bar{
 .tp-lvl{display:none !important;}
 
 /* ═══════════════════════════════════════════════════════════
-   PROJECTS — FIX 4: "Portfolio" tag removed, "Selected Projects" → "Projects"
+   PROJECTS
    ═══════════════════════════════════════════════════════════ */
 #projects-section{background:var(--deep-navy);padding:110px 24px;border-top:1px solid var(--navy-border);}
 .projects-inner{max-width:1180px;margin:0 auto;}
@@ -458,7 +457,6 @@ header.scrolled .header-bar{
 .edu-card:hover{border-color:#3B82F6;transform:translateX(10px);box-shadow:0 -1px 8px rgba(37,99,235,.06),0 10px 28px rgba(0,0,0,.45);}
 .edu-icon-wrap{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;border:1px solid rgba(255,255,255,.08);}
 .edu-icon-wrap img{width:100%;height:100%;object-fit:cover;}
-/* FIX 3: Education logo fallback — styled nicely if image fails */
 .edu-icon-fallback{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:1.1rem;color:white;}
 .edu-degree{font-family:var(--font-heading) !important;font-size:.98rem;font-weight:700;color:white;line-height:1.3;margin-bottom:3px;}
 .edu-school{font-size:.85rem;color:#60A5FA;font-weight:600;margin-bottom:4px;}
@@ -521,7 +519,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 .stagger-children.visible>*:nth-child(6){opacity:1;transform:translateY(0);transition-delay:.40s;}
 
 /* ═══════════════════════════════════════════════════════════
-   RESPONSIVE — FIX 3 & 5: Mobile fixes
+   RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
 @media(max-width:1024px){
   .project-grid{grid-template-columns:1fr 1fr;}
@@ -536,7 +534,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   header{padding:10px 12px;}
   .header-bar{padding:8px 16px;}
 
-  /* Hero — purely mobile centered & symmetrical */
+  /* Hero */
   #hero{padding:100px 20px 70px;}
   .hero-inner{
     grid-template-columns:1fr;
@@ -550,13 +548,26 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .hero-bio{font-size:.95rem;max-width:100%;text-align:center; margin-left:auto; margin-right:auto;}
   .hero-actions{justify-content:center;}
   .status-badge{font-size:.72rem;}
-  
-  /* Bringing back animated character on mobile synchronously and positioning it behind/next to the card for symmetry without hiding it completely */
-  .orbit-walker-wrap{display:block !important; width:90px; height:190px; margin-left:80px; bottom:-15px; left:50%; z-index:0; transform:translateX(0) translateY(0) !important; animation: mobileIdle 3.8s ease-in-out infinite !important; opacity: 1 !important;}
+
+  /* ═══ FIX 3: Mobile cartoon - properly visible and positioned ═══ */
+  .orbit-walker-wrap{
+    position:absolute !important;
+    display:block !important;
+    width:100px !important;
+    height:200px !important;
+    right:0px !important;
+    bottom:-20px !important;
+    left:auto !important;
+    margin:0 !important;
+    z-index:5 !important;
+    opacity:1 !important;
+    transform:none !important;
+    animation:mobileIdle 3.8s ease-in-out infinite !important;
+  }
   @keyframes mobileIdle{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
-  /* Profile card sizing & perfectly centered */
-  .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center; position:relative;}
+  /* Profile card */
+  .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center; position:relative; overflow:visible;}
   .profile-card-wrap{width:100%;max-width:380px; margin:0 auto; z-index:2;}
   .profile-card{padding:32px 24px; display:flex; flex-direction:column; align-items:center; text-align:center;}
   .avatar-wrap{margin:0 auto 18px;}
@@ -624,7 +635,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 
   /* Contact */
   #contact-section{padding:70px 20px 90px;}
-  .contact-grid-2{display:grid; grid-template-columns:1fr; gap:16px; width:100%; max-width:100%;}
+  .contact-grid-2{display:flex !important; flex-direction:column !important; gap:16px; width:100%; max-width:100%;}
   .contact-grid-4{display:grid; grid-template-columns:1fr 1fr!important; gap:16px;}
   .cc{display:flex; flex-direction:column; align-items:center; text-align:center; width:100%; padding:28px 20px !important; box-sizing:border-box; max-width:100%; overflow:hidden;}
   .cc-icon{margin:0 auto; width:56px; height:56px; flex-shrink:0;}
@@ -658,6 +669,13 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .code-block{font-size:.7rem;padding:14px;}
   .edu-card{padding:24px 16px;}
   .edu-icon-wrap{width:54px;height:54px;}
+  /* Smaller cartoon on very small screens */
+  .orbit-walker-wrap{
+    width:80px !important;
+    height:160px !important;
+    right:-5px !important;
+    bottom:-15px !important;
+  }
 }
 
 @media(max-width:360px){
@@ -690,7 +708,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
       <li><a href="#experience">Experience</a></li>
     </ul>
     <div class="header-actions">
-      <!-- FIX 1: CV path fixed — relative path works on GitHub Pages -->
       <a href="GenralCV.pdf" download="Atul_Kumar_CV.pdf" class="cv-btn-nav">Download CV</a>
       <a href="#contact-section" class="call-btn"><i class="fa-solid fa-phone"></i> Contact</a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
@@ -716,7 +733,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 <section id="hero">
   <div class="hero-orb-mid"></div>
   <div class="hero-inner">
-    <!-- FIX 3: hero-left class for mobile centering -->
     <div class="hero-left" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;">
       <div class="status-badge hba"><span class="status-dot"></span>Open to Work</div>
       <div class="hero-name-wrap"><span class="hero-name-label hna">Atul Kumar</span></div>
@@ -750,8 +766,9 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
               <span class="conn-num">83%</span>
               <span class="conn-lbl">Avg Model Acc.</span>
             </div>
+            <!-- FIX 2: DSA count - dynamic, fetched from Codolio -->
             <div class="conn-item">
-              <span class="conn-num">150+</span>
+              <span class="conn-num" id="dsaCount">150+</span>
               <span class="conn-lbl">DSA Solved</span>
             </div>
           </div>
@@ -763,6 +780,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
           </div>
         </div>
       </div>
+      <!-- FIX 3: Animated cartoon - always rendered, shown on mobile via CSS -->
       <div class="orbit-walker-wrap" aria-hidden="true">
         <svg class="orbit-walker" viewBox="0 0 110 190" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="52" cy="180" rx="24" ry="6" fill="#6366f1" opacity=".13">
@@ -852,7 +870,8 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
         </div>
         <div class="ws-stats">
           <div class="ws-pill"><i class="fa-brands fa-github"></i><span id="aboutRepoCount">— Repos</span></div>
-          <div class="ws-pill ws-pill-g"><i class="fa-solid fa-code"></i> 150+ DSA</div>
+          <!-- FIX 2: Dynamic DSA count in about section -->
+          <div class="ws-pill ws-pill-g"><i class="fa-solid fa-code"></i> <span id="aboutDsaCount">150+</span> DSA</div>
           <div class="ws-pill"><i class="fa-solid fa-brain"></i> 83% Acc.</div>
         </div>
         <div class="sticky-note">keep shipping! 🚀</div>
@@ -871,7 +890,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
         <div class="ahl fade-in"><span class="ahl-icon">📊</span><div class="ahl-text"><strong>Data Analyst</strong><span>Power BI · Tableau · Python</span></div></div>
       </div>
       <div class="about-cta">
-        <!-- FIX 1: About CV button also fixed with relative path -->
         <a href="./GenralCV.pdf" download="Atul_Kumar_CV.pdf" class="abtn-p" style="position:relative; z-index:10;">
   <i class="fa-solid fa-download"></i> Download CV
 </a>
@@ -882,12 +900,10 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 </section>
 
 <!-- ════════════════════ SKILLS ════════════════════ -->
-<!-- FIX 2: Unique section name "Skill Matrix" instead of "Technical Arsenal" -->
 <div id="skills-wrap">
   <section class="section">
     <div class="section-header sha">
       <div class="section-tag">Expertise</div>
-      <!-- UNIQUE NAME: "Skill Matrix" — sounds technical & memorable -->
       <h2 class="section-title">Skill Matrix</h2>
       <p style="color:var(--ink-light);font-size:.95rem;margin-top:12px;font-style:italic;">Tools I wield. Problems I solve.</p>
     </div>
@@ -937,7 +953,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 </div>
 
 <!-- ════════════════════ PROJECTS ════════════════════ -->
-<!-- FIX 4: Tag changed, title = "Projects" only -->
 <section id="projects-section">
   <div class="projects-inner">
     <div class="section-header sha">
@@ -1036,7 +1051,8 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
       <div class="cert-row achievement">
         <div class="cert-logo" style="background:#FEF3C7;border-color:#FDE68A;"><svg viewBox="0 0 44 44" style="width:100%;height:100%;"><rect width="44" height="44" rx="8" fill="#FEF3C7"/><text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="24">🏅</text></svg></div>
         <div class="cert-info">
-          <span class="cert-title">150+ DSA Problems Solved</span>
+          <!-- FIX 2: Dynamic DSA count in certifications -->
+          <span class="cert-title"><span id="certDsaCount">150+</span> DSA Problems Solved</span>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:5px;">
             <span class="cert-issuer" style="margin:0;">LeetCode · GeeksForGeeks · Codolio</span>
             <a href="https://codolio.com/profile/theatulkumar" target="_blank" class="cert-action-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Codolio</a>
@@ -1070,7 +1086,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     <div>
       <p style="color:#64748B;font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">🎓 Education</p>
       <div class="edu-grid">
-        <!-- FIX 3: Education logos — inline fallback so they always show -->
         <div class="edu-card sl">
           <div class="edu-icon-wrap">
             <img src="logo/lpu.png" alt="LPU"
@@ -1137,20 +1152,21 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
     <span class="reveal-line"></span>
     <div style="max-width:860px;margin:0 auto;">
-      <div class="contact-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-        <a href="https://mail.google.com/mail/?view=cm&to=tiwariatul1016@gmail.com" target="_blank" class="cc cc-email fade-in" style="padding:28px 24px;">
+      <!-- FIX 1: Gmail on top full-width, WhatsApp below full-width — stacked vertically, no grid -->
+      <div class="contact-grid-2" style="display:flex;flex-direction:column;gap:16px;margin-bottom:16px;">
+        <a href="https://mail.google.com/mail/?view=cm&to=tiwariatul1016@gmail.com" target="_blank" class="cc cc-email fade-in" style="padding:28px 36px;">
           <div class="cc-icon" style="width:54px;height:54px;border-radius:16px;flex-shrink:0;"><svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#EA4335"/><path d="M8 16l16 11 16-11" stroke="white" stroke-width="2.5" stroke-linecap="round"/><rect x="8" y="14" width="32" height="22" rx="3" stroke="white" stroke-width="2.5"/></svg></div>
           <div class="cc-text">
             <span class="cc-lbl">Email me</span>
-            <span class="cc-val">tiwariatul1016@gmail.com</span>
+            <span class="cc-val" style="white-space:nowrap;">tiwariatul1016@gmail.com</span>
             <span style="font-size:.72rem;color:var(--ink-light);display:block;margin-top:2px;transition:color .3s;">Best for project queries</span>
           </div>
         </a>
-        <a href="tel:+919310928752" class="cc cc-phone fade-in" style="padding:28px 24px;">
+        <a href="tel:+919310928752" class="cc cc-phone fade-in" style="padding:28px 36px;">
           <div class="cc-icon" style="width:54px;height:54px;border-radius:16px;flex-shrink:0;"><svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#25D366"/><path d="M24.05 14C18.52 14 14.03 18.5 14.03 24.03c0 1.76.46 3.48 1.34 5L14 34l5.12-1.34a10 10 0 0 0 4.93 1.3h.01c5.52 0 10.02-4.5 10.02-10.03S29.58 14 24.05 14zM29.6 27.28c-.3.86-1.74 1.55-2.4 1.63-.61.08-1.42.22-4.1-1-3.21-1.45-5.26-4.73-5.42-4.95-.15-.22-1.28-1.7-1.28-3.25s.8-2.3 1.08-2.61c.28-.31.6-.39.8-.39s.4 0 .58.01c.2.01.46-.07.72.55.27.65.92 2.25 1 2.45.08.2.14.44.01.7-.12.26-.18.42-.36.63-.18.21-.38.46-.54.63-.18.2-.38.42-.16.8 2.33 4.02 3.45 4.7 4.54 5.34.42.25.68.21.94-.09.25-.3.88-1.02 1.13-1.37.24-.35.49-.3.85-.16.36.14 2.29 1.08 2.68 1.28.4.2.66.3.75.46.1.16.1.92-.2 1.78z" fill="white"/></svg></div>
           <div class="cc-text">
             <span class="cc-lbl">Call / WhatsApp</span>
-            <span class="cc-val">+91 93109 28752</span>
+            <span class="cc-val" style="white-space:nowrap;">+91 93109 28752</span>
             <span style="font-size:.72rem;color:var(--ink-light);display:block;margin-top:2px;transition:color .3s;">Quick responses on WhatsApp</span>
           </div>
         </a>
@@ -1252,6 +1268,54 @@ const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:.07,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.fade-in,.sha,.sl,.sr,.sp,.reveal-line,.reveal-line-dark,.stagger-children').forEach(el=>observer.observe(el));
+
+/* ══════════════════════════════════════════════════════
+   FIX 2: CODOLIO DSA COUNT — fetch live from Codolio
+   ══════════════════════════════════════════════════════ */
+function updateDSACount(val) {
+  ['dsaCount','aboutDsaCount','certDsaCount'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  });
+}
+
+async function loadCodolio() {
+  // Codolio is a React SPA — try their internal API endpoints
+  const ENDPOINTS = [
+    'https://codolio.com/api/profile/theatulkumar',
+    'https://codolio.com/api/v1/profile/theatulkumar',
+    'https://codolio.com/api/user/theatulkumar',
+    'https://codolio.com/api/stats/theatulkumar',
+  ];
+
+  for (const url of ENDPOINTS) {
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4000);
+      const res = await fetch(url, {
+        signal: ctrl.signal,
+        headers: { 'Accept': 'application/json' }
+      });
+      clearTimeout(timer);
+      if (!res.ok) continue;
+      const d = await res.json();
+      // Try every likely field name
+      const total =
+        d?.totalSolved ?? d?.total_solved ?? d?.problemsSolved ??
+        d?.data?.totalSolved ?? d?.data?.total_solved ??
+        d?.stats?.totalSolved ?? d?.profile?.totalSolved ??
+        d?.solved ?? d?.count;
+      if (total != null && !isNaN(Number(total))) {
+        updateDSACount(Number(total) + '+');
+        return;
+      }
+    } catch (e) {
+      // try next endpoint
+    }
+  }
+  // All endpoints failed — keep fallback "150+"
+}
+loadCodolio();
 
 /* ══════════════════════════════════════════════════════
    PROJECT SMART FILTER + SEARCH

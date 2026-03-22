@@ -1182,22 +1182,19 @@ document.querySelectorAll('.fade-in,.sha,.sl,.sr,.sp,.reveal-line,.reveal-line-d
    4. Filter & search work on rendered cards
    ══════════════════════════════════════════════════════ */
 
-/* ── Step 1: Category detection — description only ── */
+/* ── Step 1: Category — #tag anywhere, capital/small dono ── */
 function getCategory(desc){
   const d=(desc||'').toLowerCase();
-  /* Machine Learning keywords */
-  if(/\b(machine learning|#ml\b|ml project|prediction|predictive|regression|classification|neural network|deep learning|nlp|natural language|random forest|decision tree|xgboost|scikit|tensorflow|keras|model training|supervised|unsupervised|clustering|sentiment analysis|image recognition|object detection)\b/.test(d)) return 'prediction';
-  /* Data Analytics keywords */
-  if(/\b(data analytics|#da\b|data analysis|dashboard|visualization|visualis|eda|exploratory|power bi|tableau|seaborn|matplotlib|pandas|election|aqi|air quality|trend analysis|insight|business intelligence|reporting|statistics|survey|excel|pivot)\b/.test(d)) return 'analysis';
-  /* Web Dev keywords */
-  if(/\b(web|website|frontend|html|css|javascript|react|next\.?js|vue|angular|landing page|responsive|ui|ux|clone|portfolio site|webpage)\b/.test(d)) return 'web';
+  if(/#\s*ml\b/.test(d))     return 'prediction';
+  if(/#\s*da\b/.test(d))     return 'analysis';
+  if(/#\s*web\b/.test(d))    return 'web';
   return 'others';
 }
 
-/* ── Step 2: Live badge detection — "# live demo:" in description only ── */
-function getLiveUrl(desc){
-  if(!desc)return null;
-  /* Match:  # live demo: https://...  OR  #live demo: https://... (case insensitive) */
+/* ── Step 2: Live URL — homepage field first, then #live demo: anywhere in description (any case) ── */
+function getLiveUrl(r){
+  if(r.homepage && r.homepage.startsWith('http')) return r.homepage.trim();
+  const desc=r.description||'';
   const match=desc.match(/#\s*live\s+demo\s*[:\-]\s*(https?:\/\/[^\s]+)/i);
   return match?match[1].trim():null;
 }
@@ -1259,7 +1256,7 @@ function updateCounts(){
 function buildCard(r){
   const desc=r.description||'';
   const cat=getCategory(desc);           /* description-only category */
-  const liveUrl=getLiveUrl(desc);        /* description-only live detection */
+  const liveUrl=getLiveUrl(r);           /* homepage or #live demo: in description */
   const cfg=CAT_CONFIG[cat]||CAT_CONFIG.others;
   const name=(r.name||'repo').replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const shortDesc=desc.length>115?desc.slice(0,115)+'\u2026':desc;

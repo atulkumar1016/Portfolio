@@ -1182,21 +1182,22 @@ document.querySelectorAll('.fade-in,.sha,.sl,.sr,.sp,.reveal-line,.reveal-line-d
    4. Filter & search work on rendered cards
    ══════════════════════════════════════════════════════ */
 
-/* ── Step 1: Category — #tag anywhere, capital/small dono ── */
+/* ── Step 1: Category — keywords anywhere in description, any case, no # needed ── */
 function getCategory(desc){
   const d=(desc||'').toLowerCase();
-  if(/#\s*ml\b/.test(d))     return 'prediction';
-  if(/#\s*da\b/.test(d))     return 'analysis';
-  if(/#\s*web\b/.test(d))    return 'web';
+  if(/machine.?learning|\bml\b|neural|deep.?learn|random.?forest|regression|classification|xgboost|scikit|tensorflow|keras|nlp|clustering|prediction|predictive|supervised|unsupervised/.test(d)) return 'prediction';
+  if(/data.?analytic|data.?analysis|dashboard|visualization|visualis|\beda\b|exploratory|power.?bi|tableau|seaborn|air.?quality|\baqi\b|election|trend.?analysis|business.?intel/.test(d)) return 'analysis';
+  if(/\bweb\b|website|frontend|\bhtml\b|\bcss\b|landing.?page|responsive|\bui\b|\bux\b|\breact\b|next\.?js|angular|clone|webpage/.test(d)) return 'web';
   return 'others';
 }
 
-/* ── Step 2: Live URL — homepage field first, then #live demo: anywhere in description (any case) ── */
+/* ── Step 2: Live URL — "live demo" anywhere in description (any case, no # needed), grab the https:// after it ── */
 function getLiveUrl(r){
   if(r.homepage && r.homepage.startsWith('http')) return r.homepage.trim();
   const desc=r.description||'';
-  const match=desc.match(/#\s*live\s+demo\s*[:\-]\s*(https?:\/\/[^\s]+)/i);
-  return match?match[1].trim():null;
+  const match=desc.match(/live\s+demo\s*[:\-]?\s*(https?:\/\/[^\s,)>]+)/i);
+  if(match) return match[1].replace(/[.,)>]+$/,'');
+  return null;
 }
 
 /* ── Filter config ── */

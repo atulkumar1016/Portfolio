@@ -7,9 +7,7 @@
 
 ---
 
-## 📸 Preview
 
-![Portfolio Preview](./assets/preview.png)
 
 <!-- Replace the above with an actual screenshot of your portfolio -->
 

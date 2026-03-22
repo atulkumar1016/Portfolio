@@ -215,11 +215,18 @@ header.scrolled .header-bar{
 .btn-linkedin{background:var(--linkedin-brand);box-shadow:0 6px 18px rgba(0,119,181,.2);}
 .btn-linkedin:hover{transform:translateY(-5px) scale(1.04);background:#005a8a;box-shadow:0 14px 30px rgba(0,119,181,.3);}
 .profile-orbit-stage{position:relative;}
-.orbit-walker-wrap{
-  position:absolute;bottom:0px;right:-95px;width:130px;height:290px;
-  pointer-events:none;z-index:10;opacity:0;transform:translateX(160px);
-  animation:charSlideIn 1.1s cubic-bezier(.22,1,.36,1) forwards,charIdle 3.8s ease-in-out .8s infinite;
-}
+.orbit-walker-wrap {
+      position: absolute;
+      bottom: -18px;
+      right: -95px;
+      width: 130px;
+      height: 270px;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      transform: translateX(160px);
+      animation: charSlideIn 1.1s cubic-bezier(.22, 1, .36, 1) forwards, charIdle 3.8s ease-in-out .8s infinite;
+    }
 @keyframes charSlideIn{to{opacity:1;transform:translateX(0);}}
 @keyframes charIdle{0%,100%{transform:translateX(0) translateY(0);}50%{transform:translateX(0) translateY(-8px);}}
 .orbit-walker{width:100%;height:100%;transform:scaleX(-1);}
@@ -520,7 +527,18 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   .hero-bio{font-size:.95rem;max-width:100%;text-align:center;margin-left:auto;margin-right:auto;}
   .hero-actions{justify-content:center;}
   .status-badge{font-size:.72rem;}
-  .orbit-walker-wrap{display:block !important;width:90px;height:190px;margin-left:80px;bottom:-15px;left:50%;z-index:0;transform:translateX(0) translateY(0) !important;animation:mobileIdle 3.8s ease-in-out infinite !important;opacity:1 !important;}
+  .orbit-walker-wrap {
+      position: absolute;
+      bottom: -18px;
+      right: -95px;
+      width: 130px;
+      height: 270px;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      transform: translateX(160px);
+      animation: charSlideIn 1.1s cubic-bezier(.22, 1, .36, 1) forwards, charIdle 3.8s ease-in-out .8s infinite;
+    }
   @keyframes mobileIdle{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
   .profile-orbit-stage{width:100%;display:flex;justify-content:center;align-items:center;position:relative;padding-bottom:120px !important;overflow:visible !important;}
   .profile-card-wrap{width:100%;max-width:380px;margin:0 auto;z-index:2;}
@@ -622,7 +640,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
 </head>
 <body>
 <div id="scroll-progress"></div>
-
+<!-- ════════════════════ HEADER ════════════════════ -->
 <header>
   <div class="header-bar">
     <a href="#hero" class="nav-brand">
@@ -648,7 +666,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </header>
-
+<!-- Mobile nav drawer -->
 <nav class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" id="mobileNavClose"><i class="fa-solid fa-xmark"></i></button>
   <a href="#hero" onclick="closeMobileNav()">Home</a>
@@ -659,7 +677,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
   <a href="#experience" onclick="closeMobileNav()">Experience</a>
   <a href="#contact-section" onclick="closeMobileNav()" style="margin-top:12px;background:var(--blue);color:white;">Contact</a>
 </nav>
-
+<!-- ════════════════════ HERO ════════════════════ -->
 <section id="hero">
   <div class="hero-orb-mid"></div>
   <div class="hero-inner">
@@ -709,11 +727,10 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
         </div>
       </div>
       <div class="orbit-walker-wrap" aria-hidden="true">
-        <svg class="orbit-walker" viewBox="0 0 110 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="52" cy="204" rx="24" ry="6" fill="#6366f1" opacity=".13">
+        <svg class="orbit-walker" viewBox="0 0 110 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="52" cy="180" rx="24" ry="6" fill="#6366f1" opacity=".13">
             <animate attributeName="rx" values="24;18;24" dur="3.8s" repeatCount="indefinite"/>
           </ellipse>
-          <g transform="translate(0,-15)">
           <g style="transform-origin:52px 132px;animation:legB 0.54s ease-in-out infinite;">
             <rect x="46" y="130" width="13" height="46" rx="7" fill="#1d4ed8"/>
             <rect x="39" y="169" width="22" height="11" rx="5.5" fill="#0f172a"/>
@@ -753,7 +770,6 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
             <ellipse cx="25" cy="55" rx="5.5" ry="7" fill="#f59e0b"/>
             <ellipse cx="79" cy="55" rx="5.5" ry="7" fill="#f59e0b"/>
           </g>
-          </g>
           <circle cx="96" cy="30" r="4" fill="#6366f1" opacity=".6">
             <animate attributeName="cy" values="30;22;30" dur="2.1s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values=".6;1;.6" dur="2.1s" repeatCount="indefinite"/>
@@ -776,7 +792,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ ABOUT ════════════════════ -->
 <section id="about-section">
   <div class="about-inner">
     <div class="sl" style="max-width:460px;">
@@ -825,7 +841,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ SKILLS ════════════════════ -->
 <div id="skills-wrap">
   <section class="section">
     <div class="section-header sha">
@@ -877,7 +893,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </section>
 </div>
-
+<!-- ════════════════════ PROJECTS ════════════════════ -->
 <section id="projects-section">
   <div class="projects-inner">
     <div class="section-header sha">
@@ -910,7 +926,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ CERTS ════════════════════ -->
 <section id="certs-section">
   <div class="section">
     <div class="section-header sha">
@@ -980,7 +996,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ EXPERIENCE ════════════════════ -->
 <section id="experience">
   <div class="section">
     <div class="section-header sha">
@@ -1054,7 +1070,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ CONTACT ════════════════════ -->
 <section id="contact-section">
   <div class="section">
     <div class="section-header sha">
@@ -1106,7 +1122,7 @@ footer{background:var(--deep-navy);padding:24px;text-align:center;color:#475569;
     </div>
   </div>
 </section>
-
+<!-- ════════════════════ FOOTER ════════════════════ -->
 <footer>
   <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
     <div style="font-family:'Calibri','Gill Sans MT',sans-serif;font-size:1.05rem;color:#94A3B8;font-weight:700;letter-spacing:.5px;">

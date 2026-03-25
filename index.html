@@ -1294,7 +1294,7 @@ const FALLBACK=[
 async function loadGH(){
   try{
     const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),8000);
+    const timer=setTimeout(()=>ctrl.abort(),15000);
     const[ur,rr]=await Promise.all([
       fetch('https://api.github.com/users/atulkumar1016'),
       fetch('https://api.github.com/users/atulkumar1016/repos?per_page=100&sort=updated')

@@ -1296,8 +1296,8 @@ async function loadGH(){
     const ctrl=new AbortController();
     const timer=setTimeout(()=>ctrl.abort(),8000);
     const[ur,rr]=await Promise.all([
-      fetch('https://api.github.com/users/atulkumar1016',{signal:ctrl.signal}),
-      fetch('https://api.github.com/users/atulkumar1016/repos?sort=updated&per_page=100',{signal:ctrl.signal})
+      fetch('https://api.github.com/users/atulkumar1016'),
+      fetch('https://api.github.com/users/atulkumar1016/repos?per_page=100&sort=updated')
     ]);
     clearTimeout(timer);
     if(!ur.ok||!rr.ok)throw new Error('API error');
